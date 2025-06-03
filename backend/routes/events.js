@@ -1,13 +1,13 @@
 import express from 'express';
 import { body, validationResult } from 'express-validator';
-import { protect } from '@backend/middleware/auth.js';
+import { protect } from '../middleware/auth.js';
 import {
   createEvent,
   getAllEvents,
   getEventById,
   updateEvent,
   deleteEvent,
-} from '@backend/controllers/events.js';
+} from '../controllers/events.js';
 
 const router = express.Router();
 

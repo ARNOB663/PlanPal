@@ -1,5 +1,5 @@
 import express from 'express';
-import { protect } from '@backend/middleware/auth.js';
+import { protect } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -32,7 +32,7 @@ router.put('/profile', protect, async (req, res) => {
 });
 
 // Get user by ID
-import User from '@backend/models/User.js'; // Added import for User model
+import User from '../models/User.js'; // Added import for User model
 
 router.get('/:id', async (req, res) => {
   try {

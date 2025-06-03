@@ -1,8 +1,8 @@
 process.env.JWT_SECRET = 'testsecret'; // Ensure it's defined for jwt.sign, though setup.js should also do it.
 
 import request from 'supertest';
-import app from '@backend/server.js'; // Using alias
-import User from '@backend/models/User.js'; // Using alias
+import app from '../../../backend/server.js';
+import User from '../../../backend/models/User.js';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 

@@ -1,5 +1,5 @@
-import Event from '@backend/models/Event.js';
-import User from '@backend/models/User.js'; // For potential population, not strictly used in basic functions below
+import Event from '../models/Event.js';
+import User from '../models/User.js'; // For potential population, not strictly used in basic functions below
 import { validationResult } from 'express-validator';
 
 // Create new event

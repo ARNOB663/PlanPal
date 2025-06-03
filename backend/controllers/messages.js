@@ -1,5 +1,5 @@
-import Message from '@backend/models/Message.js';
-import User from '@backend/models/User.js';
+import Message from '../models/Message.js';
+import User from '../models/User.js';
 import { validationResult } from 'express-validator';
 import mongoose from 'mongoose';
 

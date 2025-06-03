@@ -1,12 +1,12 @@
 import express from 'express';
 import { body, param, validationResult } from 'express-validator';
-import { protect } from '@backend/middleware/auth.js';
+import { protect } from '../middleware/auth.js';
 import {
   sendMessage,
   getUserMessages,
   markMessageAsRead,
   deleteMessage,
-} from '@backend/controllers/messages.js';
+} from '../controllers/messages.js';
 
 const router = express.Router();
 
