@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
-import User from '../models/User.js';
-import { sendResetPasswordEmail } from '../utils/email.js';
+import User from '@backend/models/User.js';
+import { sendResetPasswordEmail } from '../../utils/email.js';
 import crypto from 'crypto';
 
 // Generate JWT token
