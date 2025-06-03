@@ -3,6 +3,12 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get the directory name
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Route imports
 import authRoutes from './routes/auth.js';
@@ -10,8 +16,15 @@ import userRoutes from './routes/users.js';
 import eventRoutes from './routes/events.js';
 import messageRoutes from './routes/messages.js';
 
-// Load environment variables
-dotenv.config();
+// Load environment variables from project root
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
+// Debug: Log environment variables
+console.log('Environment variables:', {
+  MONGODB_URI: process.env.MONGODB_URI,
+  PORT: process.env.PORT,
+  NODE_ENV: process.env.NODE_ENV
+});
 
 const app = express();
 

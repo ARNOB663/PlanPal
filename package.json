@@ -7,29 +7,45 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
+    "dev:frontend": "vite",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles --forceExit",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
   },
   "dependencies": {
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@types/react-router-dom": "^5.3.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.511.0",
     "mongoose": "^8.15.1",
     "morgan": "^1.10.0",
-    "nodemailer": "^6.9.9"
+    "nodemailer": "^6.9.9",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-dropzone": "^14.3.8",
+    "react-router-dom": "^7.6.1",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
     "@jest/globals": "^29.7.0",
+    "@vitejs/plugin-react": "^4.5.1",
+    "autoprefixer": "^10.4.21",
     "babel-jest": "^30.0.0-beta.3",
     "jest": "^27.5.1",
     "mongodb-memory-server": "^9.5.0",
     "nodemon": "^3.0.3",
-    "supertest": "^6.3.4"
+    "postcss": "^8.5.4",
+    "supertest": "^6.3.4",
+    "tailwindcss": "^4.1.8",
+    "vite": "^6.3.5"
   },
   "jest": {
     "testEnvironment": "node",

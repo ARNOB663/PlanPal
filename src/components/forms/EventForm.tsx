@@ -71,6 +71,11 @@ const EventForm: React.FC = () => {
   };
 
   const handleLocationSelect = (location: { address: string; lat: number; lng: number }) => {
+    if (!currentUser) {
+      navigate('/login');
+      return;
+    }
+    
     setFormData(prev => ({
       ...prev,
       location: location.address,
@@ -169,6 +174,7 @@ const EventForm: React.FC = () => {
       creatorId: currentUser.id,
       maxParticipants: formData.maxParticipants,
       participants: [currentUser.id],
+      pendingParticipants: [],
       interestedUsers: [],
       genderPreference: formData.genderPreference as 'female' | 'male' | 'any',
       ageRange: formData.ageRange,
