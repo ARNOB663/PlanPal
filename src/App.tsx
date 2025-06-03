@@ -14,19 +14,19 @@ import { LoginPage, SignupPage } from './pages/AuthPages';
 
 import { useAuth } from './context/AuthContext';
 
-// Protected Route Component
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-  
-  return <>{children}</>;
-};
-
 // App Component
 const AppContent: React.FC = () => {
+  // Protected Route Component
+  const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const { isAuthenticated } = useAuth();
+
+    if (!isAuthenticated) {
+      return <Navigate to="/login" />;
+    }
+
+    return <>{children}</>;
+  };
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
