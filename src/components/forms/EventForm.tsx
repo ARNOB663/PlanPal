@@ -54,7 +54,16 @@ const EventForm: React.FC = () => {
           [name === 'minAge' ? 'min' : 'max']: parseInt(value)
         }
       }));
-    } else {
+    } else if (name.startsWith('venue.')) {
+    const venueField = name.split('.')[1];
+    setFormData(prev => ({
+      ...prev,
+      venue: {
+        ...prev.venue,
+        [venueField]: value
+      }
+    }));
+  } else {
       setFormData(prev => ({
         ...prev,
         [name]: value
@@ -95,10 +104,29 @@ const EventForm: React.FC = () => {
     // For now, we'll create local URLs
     const newPhotos = files.map(file => URL.createObjectURL(file));
     setSelectedPhotos(prev => [...prev, ...newPhotos]);
+
+  // Clear photos error if it exists
+  if (errors.photos) {
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors.photos;
+      return newErrors;
+    });
+  }
   };
 
   const handlePhotoRemove = (index: number) => {
     setSelectedPhotos(prev => prev.filter((_, i) => i !== index));
+
+  // Clear photos error if it exists, as the user is interacting with photos.
+  // Validation will occur on submit.
+  if (errors.photos) {
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors.photos;
+      return newErrors;
+    });
+  }
   };
   
   const validateForm = () => {
