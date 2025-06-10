@@ -24,5 +24,9 @@ const loginValidation = [
 // Routes
 router.post('/register', registerValidation, register);
 router.post('/login', loginValidation, login);
+router.post('/logout', (req, res) => {
+  res.json({ message: 'Logged out successfully' });
+});
+
 
 export default router;

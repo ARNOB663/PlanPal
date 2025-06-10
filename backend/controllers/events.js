@@ -27,7 +27,7 @@ export const createEvent = async (req, res) => {
       photos,
       venue,
       genderPreference,
-      creator: req.user.id, // From protect middleware
+      creator: req.user.id, 
     });
 
     const savedEvent = await newEvent.save();
