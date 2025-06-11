@@ -35,7 +35,6 @@ router.post(
   '/',
   protect,
   sendMessageRules,
-  // handleValidationErrors, // Controller handles validationResult
   sendMessage
 );
 
@@ -49,7 +48,6 @@ router.patch(
   '/:id/read',
   protect,
   messageIdParamRules,
-  // handleValidationErrors, // Controller handles validationResult
   markMessageAsRead
 );
 
@@ -57,7 +55,6 @@ router.delete(
   '/:id',
   protect,
   messageIdParamRules,
-  // handleValidationErrors, // Controller handles validationResult
   deleteMessage
 );
 

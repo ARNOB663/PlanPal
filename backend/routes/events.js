@@ -11,7 +11,6 @@ import {
 
 const router = express.Router();
 
-// Validation middleware for creating/updating events
 // Based on Event.js model
 const eventValidationRules = [
   body('title').trim().notEmpty().withMessage('Title is required'),
@@ -51,7 +50,6 @@ router.post(
   '/',
   protect,
   eventValidationRules,
-  // handleValidationErrors, // Controller now handles validationResult directly
   createEvent
 );
 
@@ -61,8 +59,7 @@ router.get('/:id', getEventById);
 router.put(
   '/:id',
   protect,
-  eventValidationRules, // Can be more specific for updates if needed (e.g. some fields not updatable)
-  // handleValidationErrors, // Controller now handles validationResult directly
+  eventValidationRules, 
   updateEvent
 );
 

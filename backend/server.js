@@ -17,14 +17,7 @@ import eventRoutes from './routes/events.js';
 import messageRoutes from './routes/messages.js';
 
 // Load environment variables from project root
-dotenv.config({ path: path.join(__dirname, '../.env') });
-
-// Debug: Log environment variables
-console.log('Environment variables:', {
-  MONGODB_URI: process.env.MONGODB_URI,
-  PORT: process.env.PORT,
-  NODE_ENV: process.env.NODE_ENV
-});
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
@@ -39,6 +32,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/messages', messageRoutes);
 
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -49,7 +43,7 @@ app.use((err, req, res, next) => {
 });
 
 // Database connection and server start conditional on NODE_ENV
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'planpal') {
   mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
@@ -60,4 +54,4 @@ if (process.env.NODE_ENV !== 'test') {
   });
 }
 
-export default app; // Export app for testing
+export default app; 
